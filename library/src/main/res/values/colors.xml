@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#92B4F4</color>
+    <color name="colorPrimaryDark">#92B4F4</color>
+    <color name="colorAccent">#92B4F4</color>
+    <color name="fp_gray">#cccccc</color>
+    <color name="fp_light_gray">#dddddd</color>
+    <color name="fp_white">#fff</color>
+    <color name="fp_defaultColor">#92B4F4</color>
+</resources>

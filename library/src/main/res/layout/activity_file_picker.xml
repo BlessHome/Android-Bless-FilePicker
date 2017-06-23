@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fp_white">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:theme="@style/FilePickerToolbarTheme"
+        android:background="@color/fp_defaultColor"
+        app:titleTextColor="@color/fp_white"
+        app:title="txt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layout_path"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#dddddd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/tv_path"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:gravity="left"
+            android:maxLines="1"
+            android:padding="6dp"
+            android:text=""
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/filepicker_back_bg"
+            android:clickable="true"
+            android:drawableLeft="@mipmap/filepicker_back"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/FilePicker_UpOneLevel"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_addbook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/filepicker_btn_bg"
+        android:text="@string/FilePicker_Selected"
+        android:textColor="@color/fp_white"
+        android:textSize="18sp"/>
+
+    <com.rratchet.filepicker.widget.EmptyRecyclerView
+        android:id="@+id/recylerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_addbook"
+        android:layout_below="@id/layout_path"/>
+
+    <include
+        android:id="@+id/empty_view"
+        layout="@layout/filepicker_emptyview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_path"/>
+
+</RelativeLayout>

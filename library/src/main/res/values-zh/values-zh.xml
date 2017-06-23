@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="FilePicker_NotFoundBooks">请选择导入的图书</string>
+    <string name="FilePicker_NotFoundPath">SD 存储卡状态不可用</string>
+    <string name="FilePicker_UpOneLevel">上一级</string>
+    <string name="FilePicker_Selected">选中</string>
+    <string name="FilePicker_LItem">项</string>
+    <string name="FilePicker_Detail">详情</string>
+    <string name="FilePicker_FileSize">文件大小 : </string>
+</resources>

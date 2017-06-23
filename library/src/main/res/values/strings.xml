@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FilePickerLibrary</string>
+    <string name="FilePicker_NotFoundBooks">Please select a file at least</string>
+    <string name="FilePicker_NotFoundPath">The sd card is not available</string>
+    <string name="FilePicker_UpOneLevel">Up</string>
+    <string name="FilePicker_Selected">selected</string>
+    <string name="FilePicker_LItem">item</string>
+    <string name="FilePicker_Detail">detail</string>
+    <string name="FilePicker_FileSize">size : </string>
+</resources>
