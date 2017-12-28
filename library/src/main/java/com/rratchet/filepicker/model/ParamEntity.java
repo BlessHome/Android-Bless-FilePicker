@@ -24,6 +24,7 @@ public class ParamEntity implements Serializable {
     private int iconStyle;
     private String[] fileTypes;
     private String notFoundFiles;
+    private String defaultPath;
 
     public String getTitle() {
         return title;
@@ -95,5 +96,13 @@ public class ParamEntity implements Serializable {
 
     public void setNotFoundFiles(String notFoundFiles) {
         this.notFoundFiles = notFoundFiles;
+    }
+
+    public String getDefaultPath() {
+        return defaultPath;
+    }
+
+    public void setDefaultPath(String defaultPath) {
+        this.defaultPath = defaultPath;
     }
 }

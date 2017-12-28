@@ -67,7 +67,19 @@ public class FilePickerActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.FilePicker_NotFoundPath, Toast.LENGTH_SHORT).show();
             return;
         }
-        mPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+        String defaultPath = mParamEntity.getDefaultPath();
+        if (defaultPath != null && !"".equals(defaultPath)) {
+            File file = new File(defaultPath);
+            if (file != null && file.exists() && file.isDirectory()) {
+                mPath = defaultPath;
+            }
+        }
+
+        if (mPath == null || "".equals(mPath)) {
+            mPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
+
         mTvPath.setText(mPath);
         mFilter = new FileFilter(mParamEntity.getFileTypes());
         mListFiles = getFileList(mPath);

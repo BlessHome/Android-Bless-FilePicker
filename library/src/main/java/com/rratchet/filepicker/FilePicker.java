@@ -21,7 +21,6 @@ import com.rratchet.filepicker.ui.FilePickerActivity;
  *
  * </pre>
  */
-
 public class FilePicker {
 
     private Activity mActivity;
@@ -37,12 +36,13 @@ public class FilePicker {
     private int mIconStyle;
     private String[] mFileTypes;
     private String mNotFoundFiles;
+    private String mDefaultPath;
 
     /**
      * 绑定Activity
      *
-     * @param activity
-     * @return
+     * @param activity the activity
+     * @return file picker
      */
     public FilePicker withActivity(Activity activity) {
         this.mActivity = activity;
@@ -52,8 +52,8 @@ public class FilePicker {
     /**
      * 绑定Fragment
      *
-     * @param fragment
-     * @return
+     * @param fragment the fragment
+     * @return file picker
      */
     public FilePicker withFragment(Fragment fragment) {
         this.mFragment = fragment;
@@ -63,8 +63,8 @@ public class FilePicker {
     /**
      * 绑定v4包Fragment
      *
-     * @param supportFragment
-     * @return
+     * @param supportFragment the support fragment
+     * @return file picker
      */
     public FilePicker withSupportFragment(android.support.v4.app.Fragment supportFragment) {
         this.mSupportFragment = supportFragment;
@@ -75,8 +75,8 @@ public class FilePicker {
     /**
      * 设置主标题
      *
-     * @param title
-     * @return
+     * @param title the title
+     * @return file picker
      */
     public FilePicker withTitle(String title) {
         this.mTitle = title;
@@ -86,8 +86,8 @@ public class FilePicker {
     /**
      * 设置辩题颜色
      *
-     * @param color
-     * @return
+     * @param color the color
+     * @return file picker
      */
     public FilePicker withTitleColor(String color) {
         this.mTitleColor = color;
@@ -97,8 +97,8 @@ public class FilePicker {
     /**
      * 设置背景色
      *
-     * @param color
-     * @return
+     * @param color the color
+     * @return file picker
      */
     public FilePicker withBackgroundColor(String color) {
         this.mBackgroundColor = color;
@@ -108,8 +108,8 @@ public class FilePicker {
     /**
      * 请求码
      *
-     * @param requestCode
-     * @return
+     * @param requestCode the request code
+     * @return file picker
      */
     public FilePicker withRequestCode(int requestCode) {
         this.mRequestCode = requestCode;
@@ -119,8 +119,8 @@ public class FilePicker {
     /**
      * 设置返回图标
      *
-     * @param backStyle
-     * @return
+     * @param backStyle the back style
+     * @return file picker
      */
     public FilePicker withBackIcon(int backStyle) {
         this.mBackStyle = 0;//默认样式
@@ -131,8 +131,8 @@ public class FilePicker {
     /**
      * 设置选择模式，默认为true,多选；false为单选
      *
-     * @param isMutily
-     * @return
+     * @param isMutily the is mutily
+     * @return file picker
      */
     public FilePicker withMutilyMode(boolean isMutily) {
         this.mMutilyMode = isMutily;
@@ -142,8 +142,8 @@ public class FilePicker {
     /**
      * 设置多选时按钮文字
      *
-     * @param text
-     * @return
+     * @param text the text
+     * @return file picker
      */
     public FilePicker withAddText(String text) {
         this.mAddText = text;
@@ -153,30 +153,50 @@ public class FilePicker {
     /**
      * 设置文件夹图标风格
      *
-     * @param style
-     * @return
+     * @param style the style
+     * @return file picker
      */
     public FilePicker withIconStyle(int style) {
         this.mIconStyle = style;
         return this;
     }
 
+    /**
+     * With file filter file picker.
+     *
+     * @param arrs the arrs
+     * @return the file picker
+     */
     public FilePicker withFileFilter(String[] arrs) {
         this.mFileTypes = arrs;
         return this;
     }
 
     /**
+     * 设置默认的路径
+     *
+     * @param defaultPath the default path
+     * @return the file picker
+     */
+    public FilePicker withDefaultPath(String defaultPath) {
+        this.mDefaultPath = defaultPath;
+        return this;
+    }
+
+    /**
      * 没有选中文件时的提示信息
      *
-     * @param notFoundFiles
-     * @return
+     * @param notFoundFiles the not found files
+     * @return file picker
      */
     public FilePicker withNotFoundBooks(String notFoundFiles) {
         this.mNotFoundFiles = notFoundFiles;
         return this;
     }
 
+    /**
+     * Start.
+     */
     @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public void start() {
         if (mActivity == null && mFragment == null && mSupportFragment == null) {
@@ -221,6 +241,7 @@ public class FilePicker {
         paramEntity.setIconStyle(mIconStyle);
         paramEntity.setFileTypes(mFileTypes);
         paramEntity.setNotFoundFiles(mNotFoundFiles);
+        paramEntity.setDefaultPath(mDefaultPath);
         Bundle bundle = new Bundle();
         bundle.putSerializable("param", paramEntity);
         return bundle;
