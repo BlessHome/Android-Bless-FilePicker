@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 .withIconStyle(mIconType)
                 .withBackIcon(mBackArrawType)
                 .withNotFoundBooks("至少选择一个文件")
+                .withSaveHistoricalPath(true)
                 //.withFileFilter(new String[]{"txt", "png", "docx"})
                 .start();
     }

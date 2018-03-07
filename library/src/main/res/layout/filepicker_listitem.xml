@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/item_path_root_relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:clickable="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/filepicker_item_bg_selector"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
+    android:id="@+id/item_path_root_relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/filepicker_item_bg_selector"
+    android:clickable="true"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
 
     <ImageView
         android:id="@+id/item_path_type_imageView"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_centerVertical="true"
-        android:background="@mipmap/filepicker_file_style_green"/>
+        android:background="@mipmap/filepicker_file_style_green" />
 
     <CheckBox
         android:id="@+id/item_path_choose_checkBox"
-        android:theme="@style/FilePickerCheckBoxTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:theme="@style/FilePickerCheckBoxTheme" />
 
     <LinearLayout
         android:id="@+id/layout_info"
@@ -37,12 +37,13 @@
         <TextView
             android:id="@+id/item_path_name_textView"
             style="@style/filepicker_item_text_name"
-            android:text="鬼吹灯"/>
+            android:text="鬼吹灯" />
 
         <TextView
             android:id="@+id/item_path_detail_textView"
             style="@style/filepicker_item_text_detail"
-            android:text="类型：txt  大小：1024KB"/>
+            android:layout_marginTop="8dp"
+            android:text="类型：txt  大小：1024KB" />
     </LinearLayout>
 
 
@@ -51,6 +52,6 @@
         android:layout_height="1px"
         android:layout_below="@id/layout_info"
         android:layout_marginTop="6dp"
-        android:background="@color/fp_light_gray"/>
+        android:background="@color/fp_light_gray" />
 
 </RelativeLayout>

@@ -25,6 +25,7 @@ public class ParamEntity implements Serializable {
     private String[] fileTypes;
     private String notFoundFiles;
     private String defaultPath;
+    private boolean saveHistoricalPath;
 
     public String getTitle() {
         return title;
@@ -104,5 +105,13 @@ public class ParamEntity implements Serializable {
 
     public void setDefaultPath(String defaultPath) {
         this.defaultPath = defaultPath;
+    }
+
+    public boolean isSaveHistoricalPath() {
+        return saveHistoricalPath;
+    }
+
+    public void setSaveHistoricalPath(boolean saveHistoricalPath) {
+        this.saveHistoricalPath = saveHistoricalPath;
     }
 }

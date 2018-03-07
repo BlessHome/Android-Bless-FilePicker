@@ -18,6 +18,7 @@ import com.rratchet.filepicker.adapter.PathAdapter;
 import com.rratchet.filepicker.filter.FileFilter;
 import com.rratchet.filepicker.model.ParamEntity;
 import com.rratchet.filepicker.utils.Constant;
+import com.rratchet.filepicker.utils.FilePickerPreferenceHelper;
 import com.rratchet.filepicker.utils.FileUtils;
 import com.rratchet.filepicker.widget.EmptyRecyclerView;
 
@@ -53,6 +54,8 @@ public class FilePickerActivity extends AppCompatActivity {
     private ParamEntity mParamEntity;
     private FileFilter mFilter;
 
+    private FilePickerPreferenceHelper preferenceHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,11 +71,22 @@ public class FilePickerActivity extends AppCompatActivity {
             return;
         }
 
-        String defaultPath = mParamEntity.getDefaultPath();
-        if (defaultPath != null && !"".equals(defaultPath)) {
-            File file = new File(defaultPath);
+        preferenceHelper = new FilePickerPreferenceHelper(this);
+        /*
+         * 判断是否记录上次路径
+         * 是：从历史读取
+         * 否：判断是否有默认路径
+         */
+        String showPath;
+        if (mParamEntity.isSaveHistoricalPath()) {
+            showPath = preferenceHelper.obtainHistoricalPath();
+        } else {
+            showPath = mParamEntity.getDefaultPath();
+        }
+        if (showPath != null && !"".equals(showPath)) {
+            File file = new File(showPath);
             if (file != null && file.exists() && file.isDirectory()) {
-                mPath = defaultPath;
+                mPath = showPath;
             }
         }
 
@@ -90,6 +104,14 @@ public class FilePickerActivity extends AppCompatActivity {
         mRecyclerView.setEmptyView(mEmptyView);
         initListener();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (preferenceHelper != null) {
+            preferenceHelper.saveHistoricalPath(mPath);
+        }
+        super.onDestroy();
     }
 
     /**

@@ -37,6 +37,7 @@ public class FilePicker {
     private String[] mFileTypes;
     private String mNotFoundFiles;
     private String mDefaultPath;
+    private boolean mSaveHistoricalPath;
 
     /**
      * 绑定Activity
@@ -184,6 +185,17 @@ public class FilePicker {
     }
 
     /**
+     * 设置是否记录上一次的访问路径
+     *
+     * @param saveHistoricalPath the save historical path
+     * @return file picker
+     */
+    public FilePicker withSaveHistoricalPath(boolean saveHistoricalPath) {
+        this.mSaveHistoricalPath = saveHistoricalPath;
+        return this;
+    }
+
+    /**
      * 没有选中文件时的提示信息
      *
      * @param notFoundFiles the not found files
@@ -242,6 +254,7 @@ public class FilePicker {
         paramEntity.setFileTypes(mFileTypes);
         paramEntity.setNotFoundFiles(mNotFoundFiles);
         paramEntity.setDefaultPath(mDefaultPath);
+        paramEntity.setSaveHistoricalPath(mSaveHistoricalPath);
         Bundle bundle = new Bundle();
         bundle.putSerializable("param", paramEntity);
         return bundle;
